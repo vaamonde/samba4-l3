@@ -20,6 +20,32 @@ if [ "$USUARIO" == "0" ]
 		then
 		if [ "$KERNEL" == "4.4" ]
 			then
+			
+			x="pti"
+			menu ()
+			{
+				while true $x != "pti"
+					do
+						clear
+						echo -e "1) Atualizar o GNU/Linux"
+						echo -e "Digite a opção desejada:"
+							read x
+						echo -e "Opção digitada: ($x)"
+
+						case "$x" in
+    							1)
+      								echo -e "Atualizando o GNU/Linux"
+      								apt-get update
+      								sleep 3
+							;;
+
+							*)
+        							echo -e "Opção inválida!, escolha uma opção válida dos menus"
+								sleep 3
+						esac
+				done
+			}
+			menu
 
 			#Script para calcular o tempo gasto para a execução
 			DATAFINAL=`date +%s`
