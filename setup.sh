@@ -58,9 +58,9 @@ if [ "$USUARIO" == "$ROOT" ]
 			TEMPO=`date -d @$RESULTADO +%H:%M:%S`
 			echo -e "Tempo gasto para execução: $TEMPO"
 			echo -e "Pressione <Enter> para reinicializar o servidor: `hostname`"
-			read
-			sleep 2
-			reboot
+				read
+				sleep 2
+				reboot
 			else
 				echo -e "Versão do Kernel: $KERNEL não homologada para esse script, versão: >= 4.4 "
 				echo -e "Pressione <Enter> para finalizar o script"
