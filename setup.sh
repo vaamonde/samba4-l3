@@ -14,24 +14,28 @@
 source parametros.sh
 
 #Validando o ambiente (usuário root, versão do Ubuntu 16.04 e versão do Kernel >= 4.4
-if [ "$USUARIO" == "0" ]
+if [ "$USUARIO" == "$ROOT" ]
 	then
-	if [ "$UBUNTU" == "16.04" ]
+	if [ "$UBUNTU" == "$UVERSION" ]
 		then
-		if [ "$KERNEL" == "4.4" ]
+		if [ "$KERNEL" == "$KVERSION" ]
 			then
 			
+			#Criação do menu de opção
 			x="pti"
 			menu ()
 			{
 				while true $x != "pti"
 					do
 						clear
+						
+						#Opção do menu
 						echo -e "1) Atualizar o GNU/Linux"
 						echo -e "Digite a opção desejada:"
 							read x
 						echo -e "Opção digitada: ($x)"
 
+						#Opções selecionada do menu, bloco de execução do case
 						case "$x" in
     							1)
       								echo -e "Atualizando o GNU/Linux"
