@@ -10,33 +10,24 @@
 # Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
 # Kernel >= 4.4.x
 #
-# Caminho para o Log do Script-00.sh
-LOG="/var/log/script-00.log"
-#
-# Variável da Data Inicial para calcular tempo de execução do Script
-DATAINICIAL=`date +%s`
-#
-# Validando o ambiente, verificando se o usuário e "root"
-USUARIO=`id -u`
-UBUNTU=`lsb_release -rs`
-KERNEL=`uname -r | cut -d'.' -f1,2`
+#Arquivo de configuração de parametros
+source parametros.sh
 
+#Validando o ambiente
 if [ "$USUARIO" == "0" ]
 	then
 	if [ "$UBUNTU" == "16.04" ]
 		then
 		if [ "$KERNEL" == "4.4" ]
 		then
-					 
-			echo -e "Fim do Script-00.sh em: `date`" >> $LOG
 
-			#Script para calcular o tempo gasto para a execução do script-00.sh
+			#Script para calcular o tempo gasto para a execução
 			DATAFINAL=`date +%s`
 			SOMA=`expr $DATAFINAL - $DATAINICIAL`
 			RESULTADO=`expr 10800 + $SOMA`
 			TEMPO=`date -d @$RESULTADO +%H:%M:%S`
-			echo -e "Tempo gasto para execução do script-00.sh: $TEMPO"
-			echo -e "Pressione <Enter> para reinicializar o servidor: `hostname`"
+				echo -e "Tempo gasto para execução: $TEMPO"
+				echo -e "Pressione <Enter> para reinicializar o servidor: `hostname`"
 			read
 			sleep 2
 			reboot
