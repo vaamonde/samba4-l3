@@ -5,10 +5,10 @@
 # Facebook: facebook.com/BoraParaPratica
 # YouTube: youtube.com/BoraParaPratica
 # Data de criação: 16/04/2017
-# Data de atualização: 16/04/2017
-# Versão: 0.1
-# Testado e homologado para a versão do Ubuntu Server 16.04 LTS x64
-# Kernel >= 4.4.x
+# Data de atualização: 04/10/2018
+# Versão: 0.2
+# Testado e homologado para a versão do Ubuntu Server 18.04.x LTS x64
+# Kernel >= 4.15.x
 #
 #Criação das variáveis globais e parâmetros utilizadas pelos scripts de instalação
 
@@ -19,16 +19,19 @@ DOMINIO="pti.intra"
 KERNEL="`uname -r | cut -d'.' -f1,2`"
 
 #versão do Kernel homologada
-KVERSION="4.4"
+KVERSION="4.15"
 
 #Senha padrão
-PASSWORD="pti@2017"
+PASSWORD="pti@2018"
 
 #Versão do Ubuntu instalada
 UBUNTU="`lsb_release -rs`"
 
+#Codinome da versão instalada
+BIONIC="`lsb_release -c | cut -f2`"
+
 #Versão do Ubuntu homologada
-UVERSION="16.04"
+UVERSION="18.04"
 
 #Identificação do Usuário logado
 USUARIO="`id -u`"
